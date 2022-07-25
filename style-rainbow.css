@@ -1,0 +1,46 @@
+
+#inner{
+    height: 50px;
+    width: 50px;
+    background-color: #800080;
+    position: absolute;
+    display: flex;
+    margin-left: 25px;
+    margin-top: 25px;
+    border: 25px solid #0000ff;
+    border-radius: 50%;
+    margin-bottom: 0;
+    margin-right: 50px;
+   
+
+    
+   
+
+}
+#middle{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    background-color: #008000;
+    background-position: center;
+    border: 25px solid #ffff00;
+    position: relative;
+    display: flex;
+    margin-left: 25px;
+    margin-block-start: 25px;
+
+    
+    
+    
+}
+
+#outer{
+
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    background-color: orange;
+    border: 25px solid red;
+    
+    
+}
