@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+}
+body{
+    background-color: #000;
+}
+#wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-block-start:8px;
+}
+.product{
+    color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-end:24px;
+    font-weight: bold;
+}
+#systems-expert{
+    background-color: darkred;
+    width: 50%;
+    order:-2;
+    height:50px;
+    margin-block-start:12.5px;
+    margin-block-end:12.5px;
+}
+#ml-expert{
+    height: 75px;
+    width: 30%;
+    background-color: orange;
+    order: -1;
+}
+#algo-expert{
+    background-color: blueviolet;
+    width: 75%;
+    order: 0;
+    margin-inline-start:12.5%;
+    height:50px;
+}
+#programming-expert{
+    height: 75px;
+    background-color: rgb(255, 80, 135);
+    width:calc(60% - 10px);
+}
+#frontend-expert{
+    width: 40%;
+    background-color: green;
+    height:50px;
+    align-self:flex-end;
+}
