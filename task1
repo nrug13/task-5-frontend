@@ -1,1 +1,76 @@
+/**
+  create customMap, customReduce, customFilter, customSome, customEvery and customForEach methods of array, we should be able to use them like:
+array.customMap(function (element, index, array) {
+     // whatever we want here
+});
+ */
+/////////////////////////////////////////////////
+Array.prototype.customMap=function(arr){
+  let emp=[];
+  let l=this.length
+  
+  for (let index = 0; index < l; index++) {
+    let a=arr(this[index]);
+    emp.push(a);
+    
+    
+  }
+  return emp;
+
+};
+var newX =[3,5,6];
+newX=newX.customMap(b=>b*b);
+console.log(newX);
+////////////////////////////////////////////////////
+Array.prototype.customReduce=function(arr){
+  let x=0;
+  let l= this.length;
+  for (let index = 0; index <l; index++) {
+    
+    arr(x=x+this[index])
+    
+  }
+  return x
+
+}
+const array1 = [1, 2, 3, 4];
+
+
+const initialValue = 0;
+const sumWithInitial = array1.customReduce(
+  (previousValue, currentValue) => previousValue + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+////////////////////////////////
+Array.prototype.customFilter=function(array){
+  var emp=[];
+  for (let index = 0; index < this.length; index++) {
+    if (array(this[index])==true) {
+      emp.push(this[index])
+    }
+    else{
+      console.log(false)
+    }
+    
+    
+  }
+  return emp;
+
+}
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.customFilter(word => word.length > 6);
+
+console.log(result);
+
+
+
+
+
+
+
+
+
 
