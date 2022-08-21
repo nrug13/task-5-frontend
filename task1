@@ -4,73 +4,102 @@ array.customMap(function (element, index, array) {
      // whatever we want here
 });
  */
-/////////////////////////////////////////////////
+///////////////////////////////////////////////// MAP
 Array.prototype.customMap=function(arr){
-  let emp=[];
-  let l=this.length
+    let emp=[];
+    let l=this.length
+    
+    for (let index = 0; index < l; index++) {
+      let a=arr(this[index]);
+      emp.push(a);
+      
+      
+    }
+    return emp;
   
-  for (let index = 0; index < l; index++) {
-    let a=arr(this[index]);
-    emp.push(a);
-    
-    
-  }
-  return emp;
-
-};
-var newX =[3,5,6];
-newX=newX.customMap(b=>b*b);
-console.log(newX);
-////////////////////////////////////////////////////
-Array.prototype.customReduce=function(arr){
-  let x=0;
-  let l= this.length;
-  for (let index = 0; index <l; index++) {
-    
-    arr(x=x+this[index])
-    
-  }
-  return x
-
-}
-const array1 = [1, 2, 3, 4];
-
-
-const initialValue = 0;
-const sumWithInitial = array1.customReduce(
-  (previousValue, currentValue) => previousValue + currentValue,
-  initialValue
-);
-
-console.log(sumWithInitial);
-////////////////////////////////
-Array.prototype.customFilter=function(array){
-  var emp=[];
-  for (let index = 0; index < this.length; index++) {
-    if (array(this[index])==true) {
-      emp.push(this[index])
+  };
+  var newX =[3,5,6];
+  newX=newX.customMap(b=>b*b);
+  console.log(newX);
+  ////////////////////////////////////////////////////  REDUCE///
+  Array.prototype.customReduce=function(arr){
+    let x=0;
+    let l= this.length;
+    for (let index = 0; index <l; index++) {
+      
+      arr(x=x+this[index])
+      
     }
-    else{
-      console.log(false)
-    }
-    
-    
+    return x
+  
   }
-  return emp;
-
-}
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
-const result = words.customFilter(word => word.length > 6);
-
-console.log(result);
-
-
-
-
-
-
-
-
-
-
+  const array1 = [1, 2, 3, 4];
+  
+  
+  const initialValue = 0;
+  const sumWithInitial = array1.customReduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+  );
+  
+  console.log(sumWithInitial);
+  ////////////////////////////////  CUSTOM FILTER////
+  Array.prototype.customFilter=function(array){
+      var emp=[];
+      for (let index = 0; index < this.length; index++) {
+        if (array(this[index])==true) {
+          emp.push(this[index])
+        }
+        else{
+          
+        }
+        
+        
+      }
+      return emp;
+    
+    }
+    const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+    
+    const result = words.customFilter(word => word.length > 6);
+    
+    console.log(result);
+  
+  //// CUSTOM SOME
+  Array.prototype.somec=function(condition){
+      for (let index = 0; index < this.length; index++) {
+         if (condition(this[index])) {
+          return true;
+          
+         }
+         return false;
+          
+      }
+  }
+  
+  let z=[10,22,33,44];
+  
+  console.log(z.somec(a=>a%11==0));
+  /// CUSTOM EVERY/// 
+   
+  Array.prototype.customEvery=function(condition){
+      for (let index = 0; index < this.length; index++) {
+         if (!condition(this[index])) {
+          return false;
+         }
+         
+          return true;;
+      }
+  }
+  let exp=[2,4,5];
+  
+  console.log(exp.customEvery(a=>a/2!=1));
+  
+  ///// CUSTOM FOREACH///
+  Array.prototype.foreachc=function(condition){
+      for (let index = 0; index < this.length; index++) {
+          condition(this[index])?console.log(this[index]):false;
+      }
+  }
+  let x=[4,4,1];
+  x.foreachc(a=>a/2==2);
